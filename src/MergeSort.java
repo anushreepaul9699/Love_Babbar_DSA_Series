@@ -57,8 +57,6 @@ public class MergeSort
             arr[j] = merged[i] ;
         }
 
-
-
     }
 
     public static void main (String[] args)
