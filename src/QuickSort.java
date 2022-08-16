@@ -2,29 +2,29 @@ public class QuickSort
 {
     public static void quick_sort(int[] arr,int s,int e)
     {
+       if (s >= e )
+       {
+           return ;
+       }
 
-        if(s>=e)
-        {
-            return;
-        }
+       int p = partition(arr , s , e) ;
 
-        int p = partition(arr , s , e);
-
-        quick_sort(arr , s ,p -1 );
-        quick_sort(arr, p+1 , e);
+       quick_sort(arr,s,p-1);
+       quick_sort(arr,p+1 , e);
 
     }
 
     public static int partition(int[] arr,int s,int e )
 
     {
+
         int pivot = arr[s] ;
 
         int count = 0 ;
 
-        for (int i = s + 1 ; i <=e ; i++)
+        for (int i = s + 1 ; i <= e ; i++)
         {
-            if(arr[i] < pivot)
+            if(arr[i] <= pivot)
                 count++ ;
         }
 
@@ -36,37 +36,38 @@ public class QuickSort
 
         arr[pivotIndex] = temp ;
 
-        int sIdx = s ;
+        int i = s ;
 
-        int eIdx = e ;
+        int j = e ;
 
-        while (sIdx < pivotIndex && eIdx > pivotIndex)
+        while ( i < pivotIndex && j > pivotIndex)
         {
-            while (arr[sIdx] <= pivot)
+            while (arr[i] <= pivot)
             {
-                sIdx++;
+                i++;
             }
 
-            while (arr[eIdx] > pivot)
+            while (arr[j] > pivot)
             {
-                eIdx-- ;
+                j-- ;
             }
 
-            if( sIdx < pivotIndex && eIdx > pivotIndex)
+            if( i < pivotIndex && j > pivotIndex)
             {
-                temp = arr[sIdx] ;
+                temp = arr[i] ;
 
-                arr[sIdx] = arr[eIdx] ;
+                arr[i] = arr[j] ;
 
-                arr[eIdx] = temp ;
+                arr[j] = temp ;
 
-                sIdx++;
+                i++ ;
 
-                eIdx-- ;
+                j-- ;
             }
         }
 
         return pivotIndex ;
+
 
     }
     public static void main (String[] args)
