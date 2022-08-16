@@ -2,81 +2,71 @@ public class QuickSort
 {
     public static void quick_sort(int[] arr,int s,int e)
     {
-        //base case
 
         if(s>=e)
         {
-            return ;
+            return;
         }
 
-        //main operations
+        int p = partition(arr , s , e);
 
-        int p = partition(arr,s,e) ;
-
-        quick_sort(arr,s,p-1);
-
-        quick_sort(arr,p+1,e);
+        quick_sort(arr , s ,p -1 );
+        quick_sort(arr, p+1 , e);
 
     }
 
     public static int partition(int[] arr,int s,int e )
 
     {
+        int pivot = arr[s] ;
 
-     int pivot = arr[s] ;
+        int count = 0 ;
 
-     int cnt = 0 ;
+        for (int i = s + 1 ; i <=e ; i++)
+        {
+            if(arr[i] < pivot)
+                count++ ;
+        }
 
-     for (int i = s + 1 ; i<=e ; i++)
-     {
-         if(arr[i] <= pivot)
+        int pivotIndex = s + count ;
 
-             cnt++;
+        int temp = pivot ;
 
-     }
+        arr[s] = arr[pivotIndex] ;
 
-     int pivotIndex = s + cnt ;
+        arr[pivotIndex] = temp ;
 
-     int temp = pivot ;
+        int sIdx = s ;
 
-    arr[s] = arr[pivotIndex] ;
+        int eIdx = e ;
 
-    arr[pivotIndex] = temp ;
+        while (sIdx < pivotIndex && eIdx > pivotIndex)
+        {
+            while (arr[sIdx] <= pivot)
+            {
+                sIdx++;
+            }
 
-     int i = s , j = e ;
+            while (arr[eIdx] > pivot)
+            {
+                eIdx-- ;
+            }
 
-     while (i < pivotIndex && j > pivotIndex)
-     {
-         while (arr[i] <= pivot)
-         {
-            i++ ;
-         }
+            if( sIdx < pivotIndex && eIdx > pivotIndex)
+            {
+                temp = arr[sIdx] ;
 
-         while (arr[j] > pivot)
-         {
-             j-- ;
-         }
+                arr[sIdx] = arr[eIdx] ;
 
-         if(i < pivotIndex && j > pivotIndex)
-         {
-             int tempo = arr[i] ;
+                arr[eIdx] = temp ;
 
-             arr[i] = arr[j] ;
+                sIdx++;
 
-             arr[j] = tempo;
+                eIdx-- ;
+            }
+        }
 
-             i++ ;
-
-             j-- ;
-
-         }
-
-
-
-
-     }
-
-     return pivotIndex ;
+        return pivotIndex ;
 
     }
     public static void main (String[] args)
