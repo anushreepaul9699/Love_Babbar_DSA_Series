@@ -24,6 +24,7 @@ public class QuickSort
 
         for (int i = s + 1 ; i <= e ; i++)
         {
+            //when duplicates elements are allowed 
             if(arr[i] <= pivot)
                 count++ ;
         }
