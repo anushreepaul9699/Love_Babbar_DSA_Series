@@ -1,3 +1,5 @@
+package Sorting;
+
 public class MergeSort
 {
     public static void sorting_divide(int[] arr , int s , int e)

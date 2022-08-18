@@ -1,3 +1,5 @@
+package Sorting;
+
 public class Selection_Sort
 {
     public static void Sorting (int[] arr,int n)
