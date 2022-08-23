@@ -99,7 +99,6 @@ public class CircularLinkedList
         cl.insert(3,3);
         cl.insert(4,3);
         cl.insert(5,4);
-        cl.delete(4);
 
         cl.print();
 
