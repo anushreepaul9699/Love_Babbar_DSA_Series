@@ -6,17 +6,22 @@ public class MinElement
 {
     static int getMin (int[] arr , int n)
     {
-        int min = Integer.MAX_VALUE ;
+        int mini = Integer.MAX_VALUE ;
 
-        for (int i = 0 ; i < n ; i++)
+        /*for (int i = 0 ; i < n ; i++)
         {
             if(arr[i] < min)
             {
                 min = arr[i] ;
             }
+        }*/
+
+        for (int i = 0 ; i < n ; i++)
+        {
+            mini = Integer.min(mini,arr[i]) ;
         }
 
-        return min ;
+        return mini ;
     }
 
     public static void main (String[] args)
