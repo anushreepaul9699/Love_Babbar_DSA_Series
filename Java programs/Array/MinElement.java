@@ -21,6 +21,7 @@ public class MinElement
             mini = Integer.min(mini,arr[i]) ;
         }
 
+
         return mini ;
     }
 
