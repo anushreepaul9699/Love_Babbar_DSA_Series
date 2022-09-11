@@ -7,7 +7,7 @@ public class ArrayIntersection
     static void findintersection(ArrayList<Integer>arrayList1 , int n ,ArrayList<Integer>arrayList2 , int m)
     {
         ArrayList<Integer> ans = new ArrayList<>() ;
-        int i = 0 , j = 0 ;
+        int i = 0 ,  j = 0 ;
         while (i < n && j < m )
         {
             if(arrayList1.get(i) == arrayList2.get(j))
